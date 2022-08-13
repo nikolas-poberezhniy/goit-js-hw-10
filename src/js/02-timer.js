@@ -10,7 +10,7 @@ const picker = document.querySelector('#datetime-picker');
 
 let deadlineDate = null;
 let timerIsOn = false;
-
+let timeID = null;
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -57,7 +57,7 @@ function timerStart(selectedDates) {
 
   timerIsOn = true;
 
-  const timeID = setInterval(() => {
+  timeID = setInterval(() => {
     let delta = selectedDates - Date.now();
     console.log(delta);
 

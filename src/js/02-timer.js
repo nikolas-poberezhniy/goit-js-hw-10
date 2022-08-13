@@ -57,7 +57,7 @@ function timerStart(selectedDates) {
 
   timerIsOn = true;
 
-  timeID = setInterval(() => {
+  const timeID = setInterval(() => {
     let delta = selectedDates - Date.now();
     console.log(delta);
 
@@ -71,7 +71,7 @@ function timerStart(selectedDates) {
 }
 
 function renderTimer(object) {
-  for (item in object) {
+  for (let item in object) {
     document.querySelector(`[data-${item}]`).innerHTML = String(
       object[item]
     ).padStart(2, '0');

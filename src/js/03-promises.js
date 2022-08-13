@@ -12,21 +12,21 @@ form.addEventListener('submit', e => {
 
 function startGeneratePromise(delay, step, amount) {
   setTimeout(() => {
-    promiseRepeating(step, amount);
+    promiseRepeating(step, amount, delay);
   }, delay);
 }
 
-function promiseRepeating(step, amount) {
-  let stepsLeft = 1;
-  let sumOfDelay = step;
+function promiseRepeating(step, amount, delay) {
+  let currentStep = 1;
+  let sumOfDelay = delay;
 
   const timerID = setInterval(() => {
-    if (stepsLeft === amount) {
+    if (currentStep === amount) {
       clearInterval(timerID);
     }
 
-    outputPromiseResult(stepsLeft, sumOfDelay);
-    stepsLeft += 1;
+    outputPromiseResult(currentStep, sumOfDelay);
+    currentStep += 1;
     sumOfDelay += step;
   }, step);
 }

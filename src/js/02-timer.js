@@ -50,7 +50,7 @@ function timerStart(selectedDates) {
     Notify.failure('timer already run');
     return;
   }
-  if (!deadlineDate) {
+  if (!deadlineDate || deadlineDate < Date.now) {
     Notify.failure('firstly choose data');
     return;
   }

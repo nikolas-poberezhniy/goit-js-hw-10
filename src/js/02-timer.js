@@ -35,7 +35,7 @@ function selectedDateValidation(selectedDates) {
   }
   deadlineDate = selectedDates[0];
 }
-
+buttonStop.disabled = true;
 buttonStart.addEventListener('click', () => {
   timerStart(deadlineDate);
 });
@@ -56,7 +56,8 @@ function timerStart(selectedDates) {
   }
 
   timerIsOn = true;
-
+  buttonStart.disabled = true;
+  buttonStop.disabled = false;
   timeID = setInterval(() => {
     let delta = selectedDates - Date.now();
     console.log(delta);
@@ -82,6 +83,9 @@ function stopTimer(timeID) {
   clearInterval(timeID);
   timerIsOn = false;
   Notify.success('Отсчет завершен');
+  deadlineDate = null;
+  buttonStart.disabled = false;
+  buttonStop.disabled = true;
 }
 
 function convertMs(ms) {

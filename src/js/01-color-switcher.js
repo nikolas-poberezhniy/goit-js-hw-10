@@ -5,9 +5,11 @@ const pageBody = document.querySelector('body');
 let timerID = null;
 
 function switchColor() {
+  pageBody.style.backgroundColor = getRandomHexColor();
+
   buttonStart.setAttribute('disabled', '');
   timerID = setInterval(() => {
-    pageBody.style.background = `${getRandomHexColor()}`;
+    pageBody.style.backgroundColor = getRandomHexColor();
   }, 1000);
 }
 

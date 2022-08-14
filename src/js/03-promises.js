@@ -8,7 +8,8 @@ form.addEventListener('submit', e => {
   const amount = parseInt(e.currentTarget.elements['amount'].value);
 
   startGeneratePromise(delay, step, amount);
-  e.currentTarget.reset;
+
+  e.currentTarget.reset();
 });
 
 function createPromise(position, delay) {

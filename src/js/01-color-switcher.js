@@ -5,13 +5,9 @@ const pageBody = document.querySelector('body');
 let timerID = null;
 
 function switchColor() {
-  const selectedElement =
-    (pageBody.style.background = `${getRandomHexColor()}`);
-
-  selectedElement;
   buttonStart.setAttribute('disabled', '');
   timerID = setInterval(() => {
-    selectedElement;
+    pageBody.style.background = `${getRandomHexColor()}`;
   }, 1000);
 }
 

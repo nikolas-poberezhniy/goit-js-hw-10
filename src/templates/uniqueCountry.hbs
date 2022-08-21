@@ -1,6 +1,13 @@
-<li class="title" data-name="{{name.common}}">
-    <img width="100px" src="{{flags.svg}}" alt="">  {{name.common}}</li>
+<li class='title' data-name='{{name.official}}'>
+
+  <img width='100px' src='{{flags.svg}}' alt='' />
+  <div><div class='common'>{{name.common}}</div>
+    <div>{{name.official}}</div>
+  </div></li>
 
 <li>Capital: {{capital}}</li>
 <li>Population: {{population}}</li>
-<li>Languages: {{#with languages}}{{#each this}}<span class="languages">{{this}}</span>{{/each}}{{/with}}</li>
+<li>Languages:
+  {{#with languages}}{{#each this}}<span
+        class='languages'
+      >{{this}}</span>{{/each}}{{/with}}</li>

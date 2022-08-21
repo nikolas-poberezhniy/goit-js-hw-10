@@ -14,7 +14,13 @@ body {
 }
 .title{
   font-size: 34px;
+  display: flex;
 }
+.title .common{
+  font-size: 20px;
+}
+
+.title img{margin-right: 15px;}
 .languages:not(:first-child):before{
   content: ', ';
   color: black;

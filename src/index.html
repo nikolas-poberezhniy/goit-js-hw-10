@@ -13,8 +13,17 @@
         >Начинается с (работает только с латиницей 😞)
       </label>
     </div>
+    <div class="toogle hide">
+      <span>Official name</span>
+      <input type="radio" name="rdo" data-name="official" id="yes" checked />
+      <input type="radio" name="rdo" data-name="common" id="no" />
+      <div class="switch">
+        <label for="yes">⇦</label>
+        <label for="no">⇨</label>
+      </div>
+      <span>Common name</span>
+    </div>
     <input type="text" id="search-box" />
-
     <ul class="country-list"></ul>
     <div class="country-info"></div>
 

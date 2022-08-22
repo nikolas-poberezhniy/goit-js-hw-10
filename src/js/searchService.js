@@ -4,6 +4,7 @@ export default class SerchService {
   constructor() {
     this.serchQuery = '';
     this.queryFields = ['name', 'capital', 'population', 'flags', 'languages'];
+    this.typeOfName = 'official';
   }
 
   fetchCountries() {
@@ -23,10 +24,12 @@ export default class SerchService {
       .catch(console.log);
   }
 
-  filteredCountries(a) {
+  filteredCountries() {
     return this.fetchCountries().then(e => {
       return e.filter(
-        countr => countr.name[a].toLowerCase().indexOf(this.serchQuery) == 0
+        countr =>
+          countr.name[this.typeOfName].toLowerCase().indexOf(this.serchQuery) ==
+          0
       );
     });
   }
@@ -35,6 +38,6 @@ export default class SerchService {
     return this.serchQuery;
   }
   set query(newQuery) {
-    this.serchQuery = newQuery;
+    this.serchQuery = newQuery.toLocaleLowerCase();
   }
 }

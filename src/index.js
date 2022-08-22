@@ -26,7 +26,7 @@ refs.toogle.addEventListener('change', e => {
 function onInput(element) {
   if (element.target.value) {
     console.log(serchService.typeOfName);
-    serchService.query = element.target.value;
+    serchService.query = element.target.value.trim();
     render();
     return;
   }

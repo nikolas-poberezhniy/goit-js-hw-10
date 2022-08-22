@@ -33,7 +33,11 @@ function onInput(element) {
   refs.list.innerHTML = '';
 }
 
-refs.list.addEventListener('click', e => console.log(e.currentTarget));
+refs.list.addEventListener('click', e => {
+  refs.input.value = e.target.dataset.name;
+  serchService.query = e.target.dataset.name.trim();
+  render();
+});
 
 refs.checkbox.addEventListener('change', () => {
   render();

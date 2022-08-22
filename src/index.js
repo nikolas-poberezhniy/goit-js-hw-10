@@ -33,7 +33,7 @@ function onInput(element) {
   refs.list.innerHTML = '';
 }
 
-refs.list.addEventListener('click', e => console.log(e.target.dataset.name));
+refs.list.addEventListener('click', e => console.log(e.currentTarget));
 
 refs.checkbox.addEventListener('change', () => {
   render();
@@ -67,14 +67,28 @@ function creatingMarcap(e) {
   console.log(e);
   if (e.length > 10) {
     Notify.info('Too many matches found. Please enter a more specific name.');
-    return;
-  } else if (e.length >= 2) {
-    e.forEach(element => {
+  }
+  if (e.length >= 2) {
+    for (let i = 0; i <= 10; i++) {
+      if (i >= e.length) {
+        return;
+      }
       if (serchService.typeOfName == 'common')
-        appendCountriesMarcup(listTemplate(element));
+        appendCountriesMarcup(listTemplate(e[i]));
+
       if (serchService.typeOfName == 'official')
-        appendCountriesMarcup(listTemplateOfficial(element));
-    });
+        appendCountriesMarcup(listTemplateOfficial(e[i]));
+    }
+    refs.list.insertAdjacentHTML(
+      'beforeend',
+      `<li style = 'margin-top: 20px;'>And ${e.length - 10} results more</li>`
+    );
+    // e.forEach(element => {
+    //   if (serchService.typeOfName == 'common')
+    //     appendCountriesMarcup(listTemplate(element));
+    //   if (serchService.typeOfName == 'official')
+    //     appendCountriesMarcup(listTemplateOfficial(element));
+    // });
     return;
   } else if (!e.length) {
     failureName();

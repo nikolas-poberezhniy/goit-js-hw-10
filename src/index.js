@@ -25,7 +25,6 @@ refs.toogle.addEventListener('change', e => {
 
 function onInput(element) {
   if (element.target.value) {
-    console.log(serchService.typeOfName);
     serchService.query = element.target.value.trim();
     render();
     return;
@@ -68,7 +67,7 @@ function render() {
 
 function creatingMarcap(e) {
   refs.list.innerHTML = '';
-  console.log(e);
+
   if (e.length > 10) {
     Notify.info('Too many matches found. Please enter a more specific name.');
   }
@@ -83,6 +82,7 @@ function creatingMarcap(e) {
       if (serchService.typeOfName == 'official')
         appendCountriesMarcup(listTemplateOfficial(e[i]));
     }
+
     refs.list.insertAdjacentHTML(
       'beforeend',
       `<li style = 'margin-top: 20px;'>And ${e.length - 10} results more</li>`

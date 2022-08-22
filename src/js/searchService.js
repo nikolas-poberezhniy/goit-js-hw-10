@@ -18,7 +18,6 @@ export default class SerchService {
         return e.json();
       })
       .then(e => {
-        console.log(e);
         return e;
       })
       .catch(console.log);

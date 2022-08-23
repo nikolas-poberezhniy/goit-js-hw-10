@@ -46,18 +46,9 @@ refs.checkbox.addEventListener('change', () => {
 
 function render() {
   if (refs.input.value) {
-    if (refs.checkbox.checked) {
-      serchService
-        .filteredCountries()
-        .then(creatingMarcap)
-        .catch(() => {
-          failureName();
-        });
-      return;
-    }
-
-    serchService
-      .fetchCountries()
+    serchService[
+      refs.checkbox.checked ? 'filteredCountries' : 'fetchCountries'
+    ]()
       .then(creatingMarcap)
       .catch(() => {
         failureName();
